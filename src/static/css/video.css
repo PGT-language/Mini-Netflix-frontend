@@ -1,0 +1,365 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #141414;
+    color: white;
+}
+.video-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8d7979;
+    padding: 10px;
+    border-bottom: 1px solid #333;  
+    margin: 0 0 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+.back-button {
+    background-color: #2a2a2a;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+.back-button:hover {
+    background-color: #ff0000;
+}
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+}
+video:hover {
+    filter: brightness(1);
+}
+
+.video-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+.video-wrapper:hover {
+    transform: scale(1.05);
+}
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+}
+.video-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+.progress-bar {
+    flex-grow: 1;
+    height: 5px;
+    background: #555;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+.progress-bar-filled {
+    height: 100%;
+    background: red;
+    width: 0%;
+    border-radius: 4px;
+}
+.control-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.video-controls button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.video-controls button:hover {
+    background-color: #555;
+}
+.control-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.video-controls input[type="range"] {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.fullscreen-button {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.fullscreen-button:hover {
+    background-color: #555;
+}
+
+@font-face {
+    font-family: 'Lobster';
+    src: url('/static/fonts/Lobster-Regular.ttf') format('truetype');
+}
+
+h2 {
+    font-family: 'Lobster', cursive;
+    font-size: 36px;
+    text-align: left;
+    color: #e50914;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #000;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+/*
+для будущего использования
+
+.next-video {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2a2a2a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.next-video h3 {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+}
+.next-video p {
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+}
+*/
+
+/* Theme Styles */
+        .theme-dark-blue {
+            background-color: #1e1e2f;
+            color: #ffffff;
+        }
+        .theme-dark-blue .video-item {
+            background-color: #2a2a40;
+        }
+        .theme-dark-blue .search-bar input,
+        .theme-dark-blue .filters select,
+        .theme-dark-blue .download-video input,
+        .theme-dark-blue .download-video button,
+        .theme-dark-blue .pagination button {
+            background-color: #3a3a5a;
+            color: #ffffff;
+            border-color: #4a4a6a;
+        }
+
+        .theme-light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .theme-light .video-item {
+            background-color: #f0f0f0;
+        }
+        .theme-light .search-bar input,
+        .theme-light .filters select,
+        .theme-light .download-video input,
+        .theme-light .download-video button,
+        .theme-light .pagination button {
+            background-color: #e0e0e0;
+            color: #000000;
+            border-color: #d0d0d0;
+        }
+
+        .theme-dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .theme-dark .video-item {
+            background-color: #1e1e1e;
+        }
+        .theme-dark .search-bar input,
+        .theme-dark .filters select,
+        .theme-dark .download-video input,
+        .theme-dark .download-video button,
+        .theme-dark .pagination button {
+            background-color: #2e2e2e;
+            color: #ffffff;
+            border-color: #3e3e3e;
+        }
+
+        .theme-ocean {
+            background-color: #1a1a2e;
+            color: #ffffff;
+        }
+        .theme-ocean .video-item {
+            background-color: #2a2a4a;
+        }
+        .theme-ocean .search-bar input,
+        .theme-ocean .filters select,
+        .theme-ocean .download-video input,
+        .theme-ocean .download-video button,
+        .theme-ocean .pagination button {
+            background-color: #3a3a5a;
+            color: #ffffff;
+            border-color: #4a4a6a;
+        }
+
+        .theme-sunset {
+            background-color: #2c1a1a;
+            color: #ffffff;
+        }
+        .theme-sunset .video-item {
+            background-color: #3c2a2a;
+        }
+        .theme-sunset .search-bar input,
+        .theme-sunset .filters select,
+        .theme-sunset .download-video input,
+        .theme-sunset .download-video button,
+        .theme-sunset .pagination button {
+            background-color: #4c3a3a;
+            color: #ffffff;
+            border-color: #5c4a4a;
+        }
+
+        .theme-forest {
+            background-color: #1a2c1a;
+            color: #ffffff;
+        }
+        .theme-forest .video-item {
+            background-color: #2a3c2a;
+        }
+        .theme-forest .search-bar input,
+        .theme-forest .filters select,
+        .theme-forest .download-video input,
+        .theme-forest .download-video button,
+        .theme-forest .pagination button {
+            background-color: #3a4c3a;
+            color: #ffffff;
+            border-color: #4a5c4a;
+        }
+
+        .theme-midnight {
+            background-color: #0a0a1a;
+            color: #ffffff;
+        }
+        .theme-midnight .video-item {
+            background-color: #1a1a2a;
+        }
+        .theme-midnight .search-bar input,
+        .theme-midnight .filters select,
+        .theme-midnight .download-video input,
+        .theme-midnight .download-video button,
+        .theme-midnight .pagination button {
+            background-color: #2a2a3a;
+            color: #ffffff;
+            border-color: #3a3a4a;
+        }
+
+        .theme-candy {
+            background-color: #2a1a2a;
+            color: #ffffff;
+        }
+        .theme-candy .video-item {
+            background-color: #3a2a3a;
+        }
+        .theme-candy .search-bar input,
+        .theme-candy .filters select,
+        .theme-candy .download-video input,
+        .theme-candy .download-video button,
+        .theme-candy .pagination button {
+            background-color: #4a3a4a;
+            color: #ffffff;
+            border-color: #5a4a5a;
+        }
+
+        .theme-cyberpunk {
+            background-color: #1a1a2a;
+            color: #00ff00;
+        }
+        .theme-cyberpunk .video-item {
+            background-color: #2a2a3a;
+        }
+        .theme-cyberpunk .search-bar input,
+        .theme-cyberpunk .filters select,
+        .theme-cyberpunk .download-video input,
+        .theme-cyberpunk .download-video button,
+        .theme-cyberpunk .pagination button {
+            background-color: #3a3a4a;
+            color: #00ff00;
+            border-color: #4a4a5a;
+        }
+
+        .theme-retro {
+            background-color: #2a1a1a;
+            color: #ffcc00;
+        }
+        .theme-retro .video-item {
+            background-color: #3a2a2a;
+        }
+        .theme-retro .search-bar input,
+        .theme-retro .filters select,
+        .theme-retro .download-video input,
+        .theme-retro .download-video button,
+        .theme-retro .pagination button {
+            background-color: #4a3a3a;
+            color: #ffcc00;
+            border-color: #5a4a4a;
+        }

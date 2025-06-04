@@ -1,0 +1,245 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #141414;
+    color: white;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+    
+}
+@import url('/app/static/fonts/Lobster-Regular.ttf');
+h2 {
+    font-family: 'Lobster', cursive;
+    font-size: 36px;
+    text-align: center;
+    color: #e50914;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+input, button {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+input[type="text"], input[type="file"] {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+button {
+    background-color: #e50914;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c10812;
+}
+
+.error {
+    color: #e50914;
+    text-align: center;
+}
+
+.video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.video-card {
+    background-color: #2a2a2a;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.video-card:hover {
+    transform: scale(1.05);
+    background-color: #3a3a3a;
+}
+
+.video-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.back-button {
+    background-color: #2a2a2a;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #3a3a3a;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Высота видео */
+    background-color: black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* чтобы всё шло от левого края */
+    padding: 20px;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #141414;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+.video-controls:hover {
+    opacity: 1;
+}
+
+.video-controls {
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.8; /* Начальная прозрачность */
+    transition: opacity 0.3s ease-in-out; /* Плавный переход */
+    padding: 10px;
+    background-color: rgba(20, 20, 20, 0.8); /* Полупрозрачный фон */
+    border-radius: 5px;
+    width: 90%;
+}
+
+/* Progress bar */
+.progress-bar {
+    height: 5px;
+    background: #555;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-bar-filled {
+    height: 100%;
+    background: red;
+    width: 0%;
+    border-radius: 4px;
+}
+
+/* Bottom control buttons */
+.control-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.video-controls button,
+.video-controls input[type="range"] {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+
+}
+
+.video-controls input[type="range"] {
+    width: 100px;
+}
+
+/* Hide controls when not hovering */
+.video-wrapper:hover .video-controls {
+    opacity: 1;
+}
+
+.video-controls button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.video-controls input[type="range"]:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.video-controls button:focus,
+.video-controls input[type="range"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+.video-controls button.play {
+    background-color: #e50914;
+    color: white;
+}
+.video-controls button.play:hover {
+    background-color: #c10812;
+}
+.video-controls button.pause {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+.video-controls button.pause:hover {
+    background-color: #3a3a3a;
+}
+
+@media (max-width: 600px) {
+    .video-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .video-wrapper {
+        height: 300px; /* Уменьшаем высоту видео на мобильных устройствах */
+    }
+
+    .video-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .control-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}

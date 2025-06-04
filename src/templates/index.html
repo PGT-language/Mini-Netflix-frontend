@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Netflix</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -350px; /* Спрятано слева */
+            width: 300px;
+            height: 100%;
+            background-color: #1f1f1f;
+            color: white;
+            padding: 20px;
+            transition: left 0.3s ease;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            
+        }
+
+        .sidebar.active {
+            left: 0; /* Выезжает */
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background-color: #9d00ff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1100;
+            border-radius: 4px;
+        }
+
+        .toggle-btn:hover {
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Главная</a></li>
+            <li><a href="{{ url_for('upload') }}">Загрузить</a></li>
+        </ul>
+    </div>
+
+    <button class="toggle-btn" id="toggleBtn">Меню</button>
+
+    <div class="container">
+        <h2>Welcome to Mini Netflix</h2>
+        <div class="video-list">
+            {% for video in videos %}
+                <a href="{{ url_for('video', video_id=video.id) }}" class="video-card">
+                    <h3>{{ video.title }}</h3>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggleBtn');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Закрытие при клике вне меню
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
